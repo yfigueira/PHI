@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: Backend
+
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: none
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${POSTGRES_URL}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${app.keycloak.server-url}/realms/${app.keycloak.realm}
+          jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+  profiles:
+    active: dev,secret
+
+server:
+  servlet:
+    context-path: /api
+  port: 8080
+
+app:
+  keycloak:
+    iam-client:
+      client-id: ${IAM_CLIENT_ID}
+      client-secret: ${IAM_CLIENT_SECRET}
+    realm: phi-iam
+    server-url: ${IAM_SERVER_URL}
+
+  cors:
+    allowed-origins: ${CLIENT_URL}

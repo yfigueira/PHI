@@ -1,0 +1,5 @@
+{
+  "responseStatus": "NOT_FOUND",
+  "statusCode": 404,
+  "message": "UserAuthentication with username [ testuser@email.com ] not found"
+}

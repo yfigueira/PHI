@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="yfp">
+        <createProcedure>
+            create or replace function update_audit_columns()
+            returns trigger as $$
+            begin
+                if
+                    tg_op = 'insert' then
+                        new.created_at := current_timestamp;
+                        new.updated_at := current_timestamp;
+                elsif
+                    tg_op = 'update' then
+                        new.updated_at := current_timestamp;
+                end if;
+            return new;
+            end;
+            $$
+            language plpgsql;
+        </createProcedure>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --dark-purple: #9a4f9f;
+    --light-purple: #b46bc4;
+    --white: #FEFEFE;
+    --light-gray: #F4F4F4;
+    --dark-gray: #CACACA;
+    --black: #1E1E30
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter Variable', sans-serif;
+    font-weight: 300;
+    color: var(--black);
+}

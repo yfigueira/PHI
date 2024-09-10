@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/phi-dev
+    username: phi-user
+    password: phi-secret
+
+app:
+  keycloak:
+    server-url: http://localhost:8090
+
+  cors:
+    allowed-origins: http://localhost:5173/

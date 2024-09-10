@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  phi-db:
+    image: postgres:16.0-alpine
+    environment:
+      POSTGRES_DB: phi-dev
+      POSTGRES_USER: phi-user
+      POSTGRES_PASSWORD: phi-secret
+    ports:
+      - '5432:5432'
