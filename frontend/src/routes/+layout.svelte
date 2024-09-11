@@ -29,7 +29,7 @@
     let navigationElements: NavigationElement[] = [
         {icon: faHouse, label: "Home", route: "/home"},
         {icon: faUser, label: "Profile", route: "/profile"},
-        {icon: faUserGroup, label: "Friends", route: "/network"},
+        {icon: faUserGroup, label: "Friends", route: "/friends"},
         {icon: faComments, label: "Chat", route: "/chat"},
     ]
 </script>

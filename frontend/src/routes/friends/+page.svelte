@@ -3,5 +3,5 @@
 </script>
 
 <h1>
-    Network page
+    Friends page
 </h1>
