@@ -55,12 +55,12 @@
 
     .side-panel {
         background-color: var(--white);
+        z-index: 99999;
     }
 
     .central-panel {
         padding: 20px;
         background-color: var(--light-gray);
-        z-index: -1;
     }
 
     .right-panel {
