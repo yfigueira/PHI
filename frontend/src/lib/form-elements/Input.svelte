@@ -18,7 +18,7 @@
             color={ColorPalette.GRAY}
             size={`${1.2}x`} />
     {/if}
-    <input use:typeAction {placeholder}  bind:value on:change />
+    <input use:typeAction {placeholder}  bind:value on:change on:input />
 </div>
 
 <style>
