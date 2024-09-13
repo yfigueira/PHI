@@ -64,4 +64,8 @@ export class AuthorizationService {
             token
         }
     }
+
+    getToken(): string | undefined {
+        return this.provider.token;
+    }
 }
