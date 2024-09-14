@@ -10,11 +10,11 @@
             returns trigger as $$
             begin
                 if
-                    tg_op = 'insert' then
+                    tg_op = 'INSERT' then
                         new.created_at := current_timestamp;
                         new.updated_at := current_timestamp;
                 elsif
-                    tg_op = 'update' then
+                    tg_op = 'UPDATE' then
                         new.updated_at := current_timestamp;
                 end if;
             return new;

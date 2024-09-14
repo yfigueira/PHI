@@ -29,7 +29,7 @@
     let navigationElements: NavigationElement[] = [
         {icon: faHouse, label: "Home", route: "/home"},
         {icon: faUser, label: "Profile", route: "/profile"},
-        {icon: faUserGroup, label: "Friends", route: "/network"},
+        {icon: faUserGroup, label: "Friends", route: "/friends"},
         {icon: faComments, label: "Chat", route: "/chat"},
     ]
 </script>
@@ -55,12 +55,12 @@
 
     .side-panel {
         background-color: var(--white);
+        z-index: 99999;
     }
 
     .central-panel {
         padding: 20px;
         background-color: var(--light-gray);
-        z-index: -1;
     }
 
     .right-panel {
