@@ -1,5 +1,6 @@
 package com.example.backend.friendrequest.persistence;
 
+import com.example.backend.friendrequest.domain.RequestStatus;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

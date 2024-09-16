@@ -1,4 +1,4 @@
-package com.example.backend.friendrequest.persistence;
+package com.example.backend.friendrequest.domain;
 
 import lombok.Getter;
 

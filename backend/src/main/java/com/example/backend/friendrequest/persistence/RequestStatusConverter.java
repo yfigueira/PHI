@@ -1,5 +1,6 @@
 package com.example.backend.friendrequest.persistence;
 
+import com.example.backend.friendrequest.domain.RequestStatus;
 import jakarta.persistence.AttributeConverter;
 
 import java.util.stream.Stream;
