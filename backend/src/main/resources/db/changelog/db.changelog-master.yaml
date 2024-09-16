@@ -6,3 +6,7 @@ databaseChangeLog:
   - includeAll:
       path: /users
       relativeToChangelogFile: true
+
+  - includeAll:
+      path: /friend
+      relativeToChangelogFile: true

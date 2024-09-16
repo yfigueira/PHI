@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="yfp">
+        <createTable tableName="request_status">
+            <column name="id" type="smallint">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="name" type="varchar(20)">
+                <constraints nullable="false" unique="true" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="yfp">
+        <insert tableName="request_status">
+            <column name="id" value="1" />
+            <column name="name" value="PENDING" />
+        </insert>
+        <insert tableName="request_status">
+            <column name="id" value="2" />
+            <column name="name" value="ACCEPTED" />
+        </insert>
+        <insert tableName="request_status">
+            <column name="id" value="3" />
+            <column name="name" value="REJECTED" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="yfp">
+        <createTable tableName="friend_request">
+            <column name="id" type="uuid">
+                <constraints primaryKey="true" />
+            </column>
+            <column name="version" type="bigint" />
+            <column name="sender" type="uuid">
+                <constraints nullable="false" foreignKeyName="fk_fr_sender" references="users(id)" />
+            </column>
+            <column name="receiver" type="uuid">
+                <constraints nullable="false" foreignKeyName="fk_fr_receiver" references="users(id)" />
+            </column>
+            <column name="status" type="smallint" defaultValue="1">
+                <constraints nullable="false" foreignKeyName="fk_fr_status" references="request_status(id)" />
+            </column>
+            <column name="created_at" type="timestamp" />
+            <column name="updated_at" type="timestamp" />
+        </createTable>
+        <addUniqueConstraint tableName="friend_request" columnNames="sender, receiver" />
+    </changeSet>
+
+    <changeSet id="4" author="yfp">
+        <createProcedure>
+            create trigger tr_update_audit_columns_friend_request
+                before insert or update on friend_request
+                    for each row execute function update_audit_columns();
+        </createProcedure>
+    </changeSet>
+</databaseChangeLog>
