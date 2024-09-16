@@ -1,5 +1,6 @@
 package com.example.backend.friendrequest.persistence;
 
+import com.example.backend.friendrequest.domain.RequestStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -34,5 +35,5 @@ public class FriendRequestEntity {
 
     @Column(name = "status")
     @Convert(converter = RequestStatusConverter.class)
-    private Integer status;
+    private RequestStatus status;
 }
