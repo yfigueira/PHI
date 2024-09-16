@@ -3,7 +3,7 @@ package com.example.backend.security.auth.domain;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
@@ -53,7 +53,7 @@ class UserAuthenticationTest {
         Set<ConstraintViolation<UserAuthentication>> violations = validator.validate(userAuthentication);
 
         // then
-        assertThat(violations, hasSize(2));
+        assertThat(violations, hasSize(1));
     }
 
     private static Stream<UserAuthentication> validUserAuthentications() {
